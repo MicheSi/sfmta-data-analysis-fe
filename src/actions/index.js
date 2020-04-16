@@ -8,12 +8,8 @@ export const fetchRoutes = (type) => dispatch => {
     dispatch({ type: FETCH_ALL_ROUTES_LOADING});
     axios
     .get(`https://sfmta-test.herokuapp.com/type-map?type=${type}`)
-    .then(res => {
-        dispatch({type:FETCH_ALL_ROUTES_SUCCESS, payload: res.data})
-    })
-    .catch(err => {
-        dispatch({type: FETCH_ALL_ROUTES_FAILED, payload: err.response})
-    })
+    .then(res => {dispatch({type:FETCH_ALL_ROUTES_SUCCESS, payload: res.data})})
+    .catch(err => {dispatch({type: FETCH_ALL_ROUTES_FAILED, payload: err.response})})
 }
 
 export const FETCH_LAYOUTS_LOADING = "FETCH_LAYOUTS_LOADING"
@@ -24,12 +20,8 @@ export const fetchLayouts = (type) => dispatch => {
     dispatch({ type: FETCH_LAYOUTS_LOADING});
     axios
     .get(`https://sfmta-test.herokuapp.com/type-map?type=${type}`)
-    .then(res => {
-        dispatch({type:FETCH_LAYOUTS_SUCCESS, payload: res.data.layout})
-    })
-    .catch(err => {
-        dispatch({type: FETCH_LAYOUTS_FAILED, payload: err.response})
-    })
+    .then(res => {dispatch({type:FETCH_LAYOUTS_SUCCESS, payload: res.data.layout})})
+    .catch(err => {dispatch({type: FETCH_LAYOUTS_FAILED, payload: err.response})})
 }
 
 export const FETCH_NAMES_LOADING = "FETCH_NAMES_LOADING"
@@ -40,12 +32,8 @@ export const fetchNames = (type) => dispatch => {
     dispatch({ type: FETCH_NAMES_LOADING});
     axios
     .get(`https://sfmta-test.herokuapp.com/type-map?type=${type}`)
-    .then(res => {
-        dispatch({type:FETCH_NAMES_SUCCESS, payload: res.data.names})
-    })
-    .catch(err => {
-        dispatch({type: FETCH_NAMES_FAILED, payload: err.response})
-    })
+    .then(res => {dispatch({type:FETCH_NAMES_SUCCESS, payload: res.data.names})})
+    .catch(err => {dispatch({type: FETCH_NAMES_FAILED, payload: err.response})})
 }
 
 
@@ -57,11 +45,6 @@ export const fetchRoutesInfo = (props) => dispatch => {
     dispatch({type: FETCH_ROUTESINFO_LOADING});
     axios
     .get(`https://sfmta-test.herokuapp.com/routes-info`)
-    .then(res => {
-        console.log(res.data)
-        dispatch({type: FETCH_ROUTESINFO_SUCCESS, payload: [res.data]})
-    })
-    .catch(err => {
-        dispatch({type: FETCH_ROUTESINFO_FAILED, payload: err.response})
-    })
+    .then(res => {dispatch({type: FETCH_ROUTESINFO_SUCCESS, payload: [res.data]})})
+    .catch(err => {dispatch({type: FETCH_ROUTESINFO_FAILED, payload: err.response})})
 }
