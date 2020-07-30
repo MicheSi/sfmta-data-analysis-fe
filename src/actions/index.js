@@ -24,9 +24,9 @@ export const fetchLayouts = (type) => dispatch => {
     .catch(err => {dispatch({type: FETCH_LAYOUTS_FAILED, payload: err.response})})
 }
 
-export const FETCH_NAMES_LOADING = "FETCH_NAMES_LOADING"
-export const FETCH_NAMES_SUCCESS = "FETCH_NAMES_SUCCESS"
-export const FETCH_NAMES_FAILED = "FETCH_NAMES_FAILED"
+export const FETCH_TYPEROUTE_LOADING = "FETCH_TYPEROUTE_LOADING"
+export const FETCH_TYPEROUTE_SUCCESS = "FETCH_TYPEROUTE_SUCCESS"
+export const FETCH_TYPEROUTE_FAILED = "FETCH_TYPEROUTE_FAILED"
 
 export const fetchNames = (type) => dispatch => {
     dispatch({ type: FETCH_NAMES_LOADING});
@@ -36,14 +36,9 @@ export const fetchNames = (type) => dispatch => {
     .catch(err => {dispatch({type: FETCH_NAMES_FAILED, payload: err.response})})
 }
 
-
-export const FETCH_ROUTESINFO_LOADING = "FETCH_ROUTESINFO_LOADING"
-export const FETCH_ROUTESINFO_SUCCESS = "FETCH_ROUTESINFO_SUCCESS"
-export const FETCH_ROUTESINFO_FAILED = "FETCH_ROUTESINFO_FAILED"
-
-export const fetchRoutesInfo = (props) => dispatch => {
-    dispatch({type: FETCH_ROUTESINFO_LOADING});
-    axios
+export const fetchTypeAndRoute = (props) => dispatch => {
+    dispatch({type: FETCH_TYPEROUTE_LOADING})
+    return axios
     .get(`https://sfmta-test.herokuapp.com/routes-info`)
     .then(res => {dispatch({type: FETCH_ROUTESINFO_SUCCESS, payload: [res.data]})})
     .catch(err => {dispatch({type: FETCH_ROUTESINFO_FAILED, payload: err.response})})
